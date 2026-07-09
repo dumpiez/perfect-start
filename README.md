@@ -53,8 +53,8 @@ npm run dev
 
 Once the server starts, head to your browser and navigate to **https://localhost:5173** or any other local URL displayed in your terminal.
 
-### Credits and Acknowledgements
+## Credits and Acknowledgements
 
-1. [favicon.im API](https://favicon.im)
+1. [favicon.im API](https://favicon.im/api)
 2. [React Docs](https://https://react.dev/)
 3. [HackClub ❤️](https://hackclub.com)
