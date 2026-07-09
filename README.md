@@ -13,12 +13,13 @@ _Please note that this Demo Screenshot is NOT the final product._
 
 ## Features
 
-- [v] Datetime features
-- [v] Live-clock
-- [v] Shortcuts button (PARTIALLY DONE)
-- [v] Searchbar (PARTIALLY DONE)
-- [x] Customization/Settings Button
-- [x] More Widgets (Upcoming!)
+- [x] Datetime features
+- [x] Live-clock
+- [x] Shortcuts button (PARTIALLY DONE)
+- [x] Searchbar (PARTIALLY DONE)
+- [ ] Customization/Settings Button
+- [ ] More Widgets (Upcoming!)
+- [ ] Web Responsive Design
 
 ## How to run locally
 
