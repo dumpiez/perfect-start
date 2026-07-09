@@ -55,6 +55,6 @@ Once the server starts, head to your browser and navigate to **https://localhost
 
 ### Credits and Acknowledgements
 
-1. (favicon.im API)[https://favicon.im]
-2. (React Docs)[https://https://react.dev/]
-3. (HackClub ❤️)[https://hackclub.com]
+1. [favicon.im API](https://favicon.im)
+2. [React Docs](https://https://react.dev/)
+3. [HackClub ❤️](https://hackclub.com)
