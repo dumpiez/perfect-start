@@ -12,7 +12,7 @@
 
 .modal>div {
   position: absolute;
-  width: 500px;
+  width: 400px;
   height: 300px;
   top: 50%;
   left: 50%;
@@ -27,15 +27,53 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  transform: translate(0, 50%);
+  transform: translate(0, 10%);
   font-size: 20px;
+  font-weight: 600;
 }
 
 .modalContent button {
-  display: block;
-  transform: translate(100%, 0);
+  width: 100px;
+  height: 30px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #212126;
+  color: white;
+  font-weight: 600;
+
+  transition:
+    width 0.3s ease-in-out 0.1s,
+    height 0.3s ease-in-out 0.1s;
+}
+
+.modalContent button:hover {
+  width: 105px;
+  height: 35px;
 }
 
 .modalContent p {
   margin: 0;
+  margin-bottom: 10px;
+}
+
+.modalContent form>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent input {
+  border-radius: 5px;
+  border: none;
+  width: 300px;
+  height: 30px;
+  background-color: #212126;
+  color: white;
+}
+
+input:focus,
+input:active {
+  border: none;
+  outline: none;
 }

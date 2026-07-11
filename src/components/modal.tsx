@@ -38,12 +38,16 @@ const Modal = ({ passedFunction, close }: ModalProps) => {
               type="text"
               onChange={(event) => setName(event.target.value)}
             />
+            <br />
+            <br />
             <p>Shortcut URL</p>
             <input
               type="text"
               onChange={(event) => setUrl(event.target.value)}
             />
-            <button onClick={() => submit()}>Submit</button>
+            <div>
+              <button onClick={() => submit()}>Submit</button>
+            </div>
           </form>
         </div>
       </div>
