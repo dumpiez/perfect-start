@@ -23,136 +23,9 @@ span.top {
   margin-bottom: 20px;
 }
 
-.dateTime {
-  display: flex;
-  align-items: center;
-}
-
-.dateTime h3 {
-  font-size: 27px;
-  padding-left: 40px;
-  margin-top: -30px;
-}
-
-.dateTime h4 {
-  font-size: 18px;
-  margin-top: -50px;
-  padding-left: 110px;
-  color: #525252;
-}
-
-.searchbar {
-  padding-left: 40px;
-}
-
-.searchbar input {
-  width: 450px;
-  height: 67px;
-  border-radius: 100000px;
-  font-size: 24px;
-  padding-left: 30px;
-  background-color: var(--searchbar-bg);
-  border: none;
-  color: white;
-}
-
-.searchbar input::placeholder {
-  color: #4d4d4d;
-  font-weight: bold;
-}
-
-.searchbar input:focus {
-  outline: none;
-}
-
-/* the following is code to stylize the search bar when autocomplete is on, but for now i decided to keep it off */
-/**/
-/* .searchbar input:autofill, */
-/* .searchbar input:autofill:hover, */
-/* .searchbar input:autofill:focus { */
-/*   outline: none !important; */
-/*   border: none !important; */
-/**/
-/*   -webkit-text-fill-color: white !important; */
-/*   box-shadow: 0 0 0 1000px var(--searchbar-bg) inset !important; */
-/*   background-color: var(--searchbar-bg) !important; */
-/* } */
-/**/
-/* .searchbar input:autofill::placeholder { */
-/*   -webkit-text-fill-color: #4d4d4d; */
-/* } */
-
-.shortcuts {
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 40px;
-  margin-top: 60px;
-  gap: 30px;
-  padding-bottom: 30px;
-}
-
-.shortcut-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.shortcut-card>div {
-  z-index: 1;
-  background-color: black;
-}
-
-.shortcuts span {
-  display: flex;
-  justify-content: center;
-  margin-top: 9px;
-  gap: 10px;
-  font-weight: 600;
-}
-
-.shortcuts button {
-  display: inline-block;
-  width: 150px;
-  height: 150px;
-  border-radius: 20px;
-  background-color: var(--searchbar-bg);
-  color: white;
-  font-size: 18px;
-  border: none;
-
-  transition:
-    width 0.3s ease-in-out 0.1s,
-    height 0.3s ease-in-out 0.1s;
-}
-
-.shortcuts button:hover {
-  width: 155px;
-  height: 155px;
-}
-
-.shortcuts button img {
-  display: block;
-  margin: auto;
-  width: 100px;
-  height: 100px;
-  border-radius: 25%;
-}
-
-.shortcuts .deleteBtn {
-  /* top right bottom left */
-  margin: 5px 0 0 30px;
-  width: 100px;
-  height: 30px;
-}
-
-.shortcuts .deleteBtn:hover {
-  width: 105px;
-  height: 35px;
-}
-
 .editBtn {
   display: flex;
   justify-content: center;
-  /* margin-top: 30px; */
 }
 
 .editBtn button {
@@ -185,51 +58,9 @@ span.top {
   margin-left: 10px;
 }
 
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal>div {
-  position: absolute;
-  width: 500px;
-  height: 300px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--searchbar-bg);
-  border-radius: 15px;
-  text-align: center;
-}
-
 .closeBtn {
   display: flex;
   justify-content: flex-end;
   margin-right: 10px;
   font-size: 32px;
-}
-
-.modalContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transform: translate(0, 50%);
-  font-size: 20px;
-}
-
-.modalContent button {
-  display: block;
-  transform: translate(100%, 0);
-}
-
-.modalContent p {
-  margin: 0;
 }

@@ -1,0 +1,44 @@
+:root {
+  --searchbar-bg: #27272d;
+}
+
+.searchbar {
+  padding-left: 40px;
+}
+
+.searchbar input {
+  width: 450px;
+  height: 67px;
+  border-radius: 100000px;
+  font-size: 24px;
+  padding-left: 30px;
+  background-color: var(--searchbar-bg);
+  border: none;
+  color: white;
+}
+
+.searchbar input::placeholder {
+  color: #4d4d4d;
+  font-weight: bold;
+}
+
+.searchbar input:focus {
+  outline: none;
+}
+
+/* the following is code to stylize the search bar when autocomplete is on, but for now i decided to keep it off */
+/**/
+/* .searchbar input:autofill, */
+/* .searchbar input:autofill:hover, */
+/* .searchbar input:autofill:focus { */
+/*   outline: none !important; */
+/*   border: none !important; */
+/**/
+/*   -webkit-text-fill-color: white !important; */
+/*   box-shadow: 0 0 0 1000px var(--searchbar-bg) inset !important; */
+/*   background-color: var(--searchbar-bg) !important; */
+/* } */
+/**/
+/* .searchbar input:autofill::placeholder { */
+/*   -webkit-text-fill-color: #4d4d4d; */
+/* } */

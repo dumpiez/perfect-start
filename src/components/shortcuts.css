@@ -1,0 +1,61 @@
+.shortcuts {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 40px;
+  margin-top: 60px;
+  gap: 30px;
+  padding-bottom: 30px;
+}
+
+.shortcut-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortcuts span {
+  display: flex;
+  justify-content: center;
+  margin-top: 9px;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.shortcuts button {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  background-color: var(--searchbar-bg);
+  color: white;
+  font-size: 18px;
+  border: none;
+
+  transition:
+    width 0.3s ease-in-out 0.1s,
+    height 0.3s ease-in-out 0.1s;
+}
+
+.shortcuts button:hover {
+  width: 155px;
+  height: 155px;
+}
+
+.shortcuts button img {
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 25%;
+}
+
+.shortcuts .deleteBtn {
+  /* top right bottom left */
+  margin: 5px 0 0 30px;
+  width: 100px;
+  height: 30px;
+}
+
+.shortcuts .deleteBtn:hover {
+  width: 105px;
+  height: 35px;
+}
