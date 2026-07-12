@@ -1,6 +1,8 @@
 import "./shortcuts.css";
 import Modal from "./modal.tsx";
 
+type ModalMode = "add" | "edit" | null;
+
 type ShortcutsProp = {
   id: string;
   name: string;
@@ -8,8 +10,8 @@ type ShortcutsProp = {
   editMode: boolean;
   deleteShortcut: (url: string) => void;
   editShortcut: (id: string, name: string, url: string) => void;
-  modalVisibility: boolean;
-  setModalVisibility: (modalVisibility: boolean) => void;
+  modalMode: ModalMode;
+  setModalMode: (modalMode: ModalMode) => void;
   closeModal: () => void;
 };
 
@@ -21,8 +23,8 @@ function Shortcuts({
   deleteShortcut,
   editShortcut,
   closeModal,
-  modalVisibility,
-  setModalVisibility,
+  modalMode,
+  setModalMode,
 }: ShortcutsProp) {
   const domain = url.replace("https://", "").split("/")[0];
 
@@ -33,7 +35,7 @@ function Shortcuts({
         href={editMode ? undefined : url}
         onClick={() => {
           if (editMode) {
-            setModalVisibility(true);
+            setModalMode("edit");
           }
         }}
       >
@@ -53,7 +55,7 @@ function Shortcuts({
         </button>
       )}
 
-      {modalVisibility && (
+      {modalMode === "edit" && (
         <Modal editFunction={editShortcut} close={closeModal} />
       )}
     </div>

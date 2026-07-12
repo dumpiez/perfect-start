@@ -12,9 +12,11 @@ type Shortcut = {
   url: string;
 };
 
+type ModalMode = "add" | "edit" | null;
+
 function App() {
   const [editMode, setEditMode] = useState(false);
-  const [modalVisibility, setModalVisibility] = useState(false);
+  const [modalMode, setModalMode] = useState<ModalMode>(null);
   const [shortcuts, setShortcuts] = useState<Shortcut[]>(() => {
     const saved = localStorage.getItem("shortcuts");
 
@@ -62,10 +64,11 @@ function App() {
 
   function editShortcut(id: string, name: string, url: string) {
     // im so sleepy
+    console.log(id, name, url);
   }
 
   function closeModal() {
-    setModalVisibility(!modalVisibility);
+    setModalMode(null);
   }
 
   useEffect(() => {
@@ -86,15 +89,22 @@ function App() {
         {shortcuts.map((shortcut) => {
           return (
             <Shortcuts
+              // everything that has to do with shortcut list
               key={shortcut.id}
               id={shortcut.id}
               name={shortcut.name}
               url={shortcut.url}
+
+              // states
               editMode={editMode}
               deleteShortcut={deleteShortcut}
               editShortcut={editShortcut}
-              modalVisibility={modalVisibility}
-              setModalVisibility={setModalVisibility}
+              modalMode={modalMode}
+
+              // set states
+              setModalMode={setModalMode}
+
+              // functions
               closeModal={close}
             />
           );
@@ -113,7 +123,8 @@ function App() {
         {editMode && (
           <button
             onClick={() => {
-              setModalVisibility(!modalVisibility);
+              // setModalVisibility(!modalVisibility);
+              setModalMode("add");
             }}
           >
             {editMode && "Add Shortcuts"}
@@ -121,7 +132,7 @@ function App() {
         )}
       </div>
 
-      {modalVisibility && (
+      {modalMode === "add" && (
         <Modal editFunction={addShortcut} close={closeModal} />
       )}
     </div>

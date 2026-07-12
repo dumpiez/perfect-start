@@ -32,7 +32,12 @@ const Modal = ({ editFunction, close }: ModalProps) => {
           &times;
         </span>
         <div className="modalContent">
-          <form onSubmit={() => submit()}>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              submit();
+            }}
+          >
             <p>Shortcut Name</p>
             <input
               type="text"
