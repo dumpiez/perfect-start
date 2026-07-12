@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./modal.css";
 
 type ModalProps = {
-  passedFunction: (name: string, url: string) => void;
+  passedFunction: (id: string, name: string, url: string) => void;
   close: () => void;
 };
 
@@ -16,7 +16,7 @@ const Modal = ({ passedFunction, close }: ModalProps) => {
     if (!tempUrl.startsWith("https://") && !tempUrl.startsWith("http://")) {
       tempUrl = `https://${url}`;
     }
-    passedFunction(name, tempUrl);
+    passedFunction(crypto.randomUUID(), name, tempUrl);
     close();
   };
   return (

@@ -7,6 +7,7 @@ import Shortcuts from "./components/shortcuts.tsx";
 import Modal from "./components/modal.tsx";
 
 type Shortcut = {
+  id: string;
   name: string;
   url: string;
 };
@@ -20,22 +21,27 @@ const App = () => {
     if (!saved) {
       return [
         {
+          id: "hackclub",
           name: "HackClub",
           url: "https://hackclub.com",
         },
         {
+          id: "slack",
           name: "Slack",
           url: "https://slack.com",
         },
         {
+          id: "stardance",
           name: "Stardance",
           url: "https://stardance.hackclub.com",
         },
         {
+          id: "youtube",
           name: "YouTube",
           url: "https://youtube.com",
         },
         {
+          id: "hackatime",
           name: "Hackatime",
           url: "https://hackatime.hackclub.com",
         },
@@ -45,13 +51,13 @@ const App = () => {
     }
   });
 
-  function deleteShortcut(url: string) {
+  function deleteShortcut(id: string) {
     // filter shortcuts, if result is false then remove, if result is true then don't remove
-    setShortcuts(shortcuts.filter((shortcut) => shortcut.url !== url));
+    setShortcuts(shortcuts.filter((shortcut) => shortcut.id !== id));
   }
 
-  function addShortcut(name: string, url: string) {
-    setShortcuts([...shortcuts, { name, url }]);
+  function addShortcut(id: string, name: string, url: string) {
+    setShortcuts([...shortcuts, { id, name, url }]);
   }
 
   function closeModal() {
@@ -76,6 +82,8 @@ const App = () => {
         {shortcuts.map((shortcut) => {
           return (
             <Shortcuts
+              key={shortcut.id}
+              id={shortcut.id}
               name={shortcut.name}
               url={shortcut.url}
               editMode={editMode}

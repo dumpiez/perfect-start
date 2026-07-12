@@ -2,17 +2,19 @@ import "./shortcuts.css";
 import Modal from "./modal.tsx";
 
 type ShortcutsProp = {
+  id: string;
   name: string;
   url: string;
   editMode: boolean;
   deleteShortcut: (url: string) => void;
-  editShortcut: (name: string, url: string) => void;
+  editShortcut: (id: string, name: string, url: string) => void;
   modalVisibility: boolean;
   setModalVisibility: (modalVisibility: boolean) => void;
   closeModal: () => void;
 };
 
 function Shortcuts({
+  id,
   name,
   url,
   editMode,
@@ -29,7 +31,11 @@ function Shortcuts({
       {/* <div className="editOverlay"> */}
       <a
         href={editMode ? undefined : url}
-        onClick={() => setModalVisibility(true)}
+        onClick={() => {
+          if (editMode) {
+            setModalVisibility(true);
+          }
+        }}
       >
         {/* <button type="button"> */}
         <img
@@ -42,7 +48,7 @@ function Shortcuts({
       {/* </div> */}
 
       {editMode && (
-        <button className="deleteBtn" onClick={() => deleteShortcut(url)}>
+        <button className="deleteBtn" onClick={() => deleteShortcut(id)}>
           Delete
         </button>
       )}
