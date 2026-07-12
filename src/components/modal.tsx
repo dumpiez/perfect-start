@@ -2,11 +2,11 @@ import { useState } from "react";
 import "./modal.css";
 
 type ModalProps = {
-  passedFunction: (id: string, name: string, url: string) => void;
+  editFunction: (id: string, name: string, url: string) => void;
   close: () => void;
 };
 
-const Modal = ({ passedFunction, close }: ModalProps) => {
+const Modal = ({ editFunction, close }: ModalProps) => {
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
 
@@ -16,7 +16,7 @@ const Modal = ({ passedFunction, close }: ModalProps) => {
     if (!tempUrl.startsWith("https://") && !tempUrl.startsWith("http://")) {
       tempUrl = `https://${url}`;
     }
-    passedFunction(crypto.randomUUID(), name, tempUrl);
+    editFunction(crypto.randomUUID(), name, tempUrl);
     close();
   };
   return (

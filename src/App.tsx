@@ -12,7 +12,7 @@ type Shortcut = {
   url: string;
 };
 
-const App = () => {
+function App() {
   const [editMode, setEditMode] = useState(false);
   const [modalVisibility, setModalVisibility] = useState(false);
   const [shortcuts, setShortcuts] = useState<Shortcut[]>(() => {
@@ -60,6 +60,10 @@ const App = () => {
     setShortcuts([...shortcuts, { id, name, url }]);
   }
 
+  function editShortcut(id: string, name: string, url: string) {
+    // im so sleepy
+  }
+
   function closeModal() {
     setModalVisibility(!modalVisibility);
   }
@@ -88,10 +92,10 @@ const App = () => {
               url={shortcut.url}
               editMode={editMode}
               deleteShortcut={deleteShortcut}
+              editShortcut={editShortcut}
               modalVisibility={modalVisibility}
               setModalVisibility={setModalVisibility}
               closeModal={close}
-              editShortcut={addShortcut}
             />
           );
         })}
@@ -118,10 +122,10 @@ const App = () => {
       </div>
 
       {modalVisibility && (
-        <Modal passedFunction={addShortcut} close={closeModal} />
+        <Modal editFunction={addShortcut} close={closeModal} />
       )}
     </div>
   );
-};
+}
 
 export default App;

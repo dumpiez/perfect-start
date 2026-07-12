@@ -54,7 +54,7 @@ function Shortcuts({
       )}
 
       {modalVisibility && (
-        <Modal passedFunction={editShortcut} close={closeModal} />
+        <Modal editFunction={editShortcut} close={closeModal} />
       )}
     </div>
   );
