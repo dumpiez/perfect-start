@@ -20,6 +20,7 @@
   font-weight: 600;
 }
 
+.shortcuts a,
 .shortcuts button {
   display: inline-block;
   width: 150px;
@@ -29,33 +30,46 @@
   color: white;
   font-size: 18px;
   border: none;
+  text-decoration: none;
 
   transition:
     width 0.3s ease-in-out 0.1s,
-    height 0.3s ease-in-out 0.1s;
+    height 0.3s ease-in-out 0.1s,
+    filter 0.4s ease-in-out 0.1s,
+    background-color 0.5s ease-in-out 0.1s;
 }
 
-.shortcuts button:hover {
+.shortcuts a:hover {
   width: 155px;
   height: 155px;
 }
 
-.shortcuts button img {
+.shortcuts a img {
   display: block;
   margin: auto;
+  margin-top: 10px;
   width: 100px;
   height: 100px;
   border-radius: 25%;
 }
 
-.shortcuts .deleteBtn {
+.shortcuts button {
   /* top right bottom left */
   margin: 5px 0 0 30px;
   width: 100px;
   height: 30px;
 }
 
-.shortcuts .deleteBtn:hover {
+.shortcuts button:hover {
   width: 105px;
   height: 35px;
 }
+
+.shortcut-card.editing a:hover {
+  filter: brightness(50%);
+  background-color: #20202c;
+}
+
+/* .shortcut-card.editing a { */
+/*   pointer-events: none; */
+/* } */

@@ -79,7 +79,11 @@ const App = () => {
               name={shortcut.name}
               url={shortcut.url}
               editMode={editMode}
-              deleteFunc={deleteShortcut}
+              deleteShortcut={deleteShortcut}
+              modalVisibility={modalVisibility}
+              setModalVisibility={setModalVisibility}
+              closeModal={close}
+              editShortcut={addShortcut}
             />
           );
         })}
