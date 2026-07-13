@@ -6,7 +6,7 @@ import DateTime from "./components/datetime.tsx";
 import Shortcuts from "./components/shortcuts.tsx";
 import Modal from "./components/modal.tsx";
 
-type Shortcut = {
+export type Shortcut = {
   id: string;
   name: string;
   url: string;
@@ -17,6 +17,7 @@ type ModalMode = "add" | "edit" | null;
 function App() {
   const [editMode, setEditMode] = useState(false);
   const [modalMode, setModalMode] = useState<ModalMode>(null);
+  const [selectedShortcutId, setSelectedShortcutId] = useState("");
   const [shortcuts, setShortcuts] = useState<Shortcut[]>(() => {
     const saved = localStorage.getItem("shortcuts");
 
@@ -63,10 +64,24 @@ function App() {
   }
 
   function editShortcut(id: string, name: string, url: string) {
-    // im so sleepy
-    console.log(id, name, url);
+    setShortcuts(
+      shortcuts.map((shortcut) => {
+        if (shortcut.id === selectedShortcutId) {
+          return {
+            id: id,
+            name,
+            url,
+          };
+        }
+
+        return shortcut;
+      }),
+    );
   }
 
+  const selectedShortcut = shortcuts.find(
+    (shortcut) => shortcut.id === selectedShortcutId,
+  );
   function closeModal() {
     setModalMode(null);
   }
@@ -98,14 +113,10 @@ function App() {
               // states
               editMode={editMode}
               deleteShortcut={deleteShortcut}
-              editShortcut={editShortcut}
-              modalMode={modalMode}
 
               // set states
               setModalMode={setModalMode}
-
-              // functions
-              closeModal={close}
+              setSelectedShortcut={setSelectedShortcutId}
             />
           );
         })}
@@ -134,6 +145,13 @@ function App() {
 
       {modalMode === "add" && (
         <Modal editFunction={addShortcut} close={closeModal} />
+      )}
+      {modalMode === "edit" && selectedShortcut && (
+        <Modal
+          editFunction={editShortcut}
+          close={closeModal}
+          selectedShortcut={selectedShortcut}
+        />
       )}
     </div>
   );

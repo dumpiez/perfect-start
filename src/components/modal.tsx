@@ -1,14 +1,20 @@
 import { useState } from "react";
+import type { Shortcut } from "../App.tsx";
 import "./modal.css";
 
 type ModalProps = {
   editFunction: (id: string, name: string, url: string) => void;
   close: () => void;
+  selectedShortcut?: Shortcut;
 };
 
-const Modal = ({ editFunction, close }: ModalProps) => {
-  const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
+const Modal = ({ editFunction, close, selectedShortcut }: ModalProps) => {
+  const [name, setName] = useState(() =>
+    selectedShortcut ? selectedShortcut.name : "",
+  );
+  const [url, setUrl] = useState(() =>
+    selectedShortcut ? selectedShortcut.url : "",
+  );
 
   const submit = () => {
     let tempUrl = url;
@@ -16,6 +22,7 @@ const Modal = ({ editFunction, close }: ModalProps) => {
     if (!tempUrl.startsWith("https://") && !tempUrl.startsWith("http://")) {
       tempUrl = `https://${url}`;
     }
+
     editFunction(crypto.randomUUID(), name, tempUrl);
     close();
   };
@@ -41,6 +48,7 @@ const Modal = ({ editFunction, close }: ModalProps) => {
             <p>Shortcut Name</p>
             <input
               type="text"
+              value={name}
               onChange={(event) => setName(event.target.value)}
             />
             <br />
@@ -48,6 +56,7 @@ const Modal = ({ editFunction, close }: ModalProps) => {
             <p>Shortcut URL</p>
             <input
               type="text"
+              value={url}
               onChange={(event) => setUrl(event.target.value)}
             />
             <div>
